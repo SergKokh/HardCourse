@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 public class TestSubtraction {
 
     @Test
-    private void test1(){
+    private void testSubtractionInt(){
         int a = 50;
         int b = 20;
         int c = 10;
@@ -16,7 +16,7 @@ public class TestSubtraction {
 
     }
     @Test
-    private void test2(){
+    private void testSubtractionDouble(){
         double a = 45.45;
         double b = 20.00;
         double c = 10.45;
