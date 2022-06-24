@@ -21,10 +21,10 @@ public class TestInit {
         driver.manage().window().maximize();
     }
 
-//    @AfterMethod
-//    public void tearDown(){
-//        driver.quit();
-//    }
+    @AfterMethod
+    public void tearDown(){
+        driver.quit();
+    }
      public void sleep(int seconds) {
       try {
         Thread.sleep(seconds * 1000);
@@ -46,7 +46,7 @@ public class TestInit {
     }
 
     public WebElement getAllMenu() {
-        return driver.findElement(By.xpath("//a[@aria-label='Open Menu']//i"));
+        return driver.findElement(By.xpath("//a[@id='nav-hamburger-menu']//span"));
     }
 
     public WebElement inputInSearchField() {
@@ -140,6 +140,92 @@ public class TestInit {
 
     public WebElement selectRegionPoland() {
         return driver.findElement(By.xpath("//a[contains(text(), 'Poland')]"));
+    }
+
+    public WebElement chouseCallPhone() {
+        return driver.findElement(By.xpath("//span[normalize-space()='Apple iPhone 11, 64GB, Black - Unlocked (Renewed)']"));
+    }
+
+    public WebElement selectCallPhone() {
+        return driver.findElement(By.xpath("//body//div[@id='a-page']//div[@id='search']//div//div//div//div//div[2]//div[1]//div[1]//div[1]//div[1]//div[2]//div[1]//h2[1]//a[1]//span[1]"));
+    }
+
+    public WebElement getCallPhone() {
+        return driver.findElement(By.xpath("//a[@data-routing='off']//span[contains(text(),'Cell Phones')]"));
+    }
+
+    public WebElement getCallPhoneAndAcces() {
+        return driver.findElement(By.xpath("//a[contains(text(), 'Cell Phones & Accessories')]"));
+    }
+
+    public WebElement clickCartBtn() {
+        return driver.findElement(By.xpath("//div[@id='nav-cart-text-container']//span[2]"));
+    }
+
+    public WebElement productInCard() {
+        return driver.findElement(By.xpath("//span[@class= \"a-truncate-cut\"]"));
+    }
+
+    public WebElement addProductToCard() {
+        return driver.findElement(By.xpath("//input[@id= \"add-to-cart-button\"]"));
+    }
+
+    public WebElement fieldSignIn() {
+        return driver.findElement(By.xpath("//h1[@class= \"a-spacing-small\"]"));
+
+    }
+
+    public WebElement addToList() {
+        return driver.findElement(By.xpath("//span//a[@class= \"a-button-text a-text-left\"]"));
+    }
+
+    public WebElement clickEnter() {
+        return driver.findElement(By.xpath("//input[@value= \"Go\"]"));
+    }
+
+    public WebElement wordComputers() {
+        return driver.findElement(By.xpath("//span[contains(text(), 'Computers & Tablets')]"));
+    }
+
+    public WebElement valueCurrency() {
+        return driver.findElement(By.xpath("//body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/a[1]/span[1]/span[2]/span[1]"));
+    }
+
+    public WebElement clickEtmyField() {
+        return driver.findElement(By.xpath("//body[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]"));
+    }
+
+    public WebElement clickSaveChange() {
+        return driver.findElement(By.xpath("//input[@class= \"a-button-input\"]"));
+    }
+
+    public WebElement chouseCurrencyEuro() {
+        return driver.findElement(By.xpath("//a[@id='icp-currency-dropdown_19']"));
+    }
+
+    public WebElement getMenuCurrency() {
+        return driver.findElement(By.xpath("//span[@class= \"a-button-text a-declarative\"]"));
+    }
+
+    public WebElement clickIkonCuntry() {
+        return driver.findElement(By.xpath("//span[@class= \"icp-nav-flag icp-nav-flag-us\"]"));
+    }
+
+    public void changeRegionPoland(){
+        deliveryRegionclickBtn().click();
+        sleep(2);
+        goToСhoiceRegion().click();
+        selectRegionPoland().click();
+        selectRegionDone().click();
+    }
+    public void goToCallPhonePage(){
+        getAllMenu().click();
+        sleep(2);
+        getElectronicMenu().click();
+        sleep(2);
+        getCallPhoneAndAcces().click();
+        sleep(2);
+        getCallPhone().click();
     }
 
 
