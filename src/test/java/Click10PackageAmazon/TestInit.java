@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -19,7 +21,24 @@ public class TestInit {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+//        String browser = System.getProperty("browser");
+//        if(browser.equals("chrome")){
+//            WebDriverManager.chromedriver().setup();
+//            driver = new ChromeDriver();
+//        }else if(browser.equals("firefox")){
+//            WebDriverManager.firefoxdriver().setup();
+//            driver = new FirefoxDriver();
+////        }else if(browser.equals("edge")){
+////            WebDriverManager.edgedriver().setup();
+////            driver = new EdgeDriver();
+//        }else {
+//            WebDriverManager.chromedriver().setup();
+//            driver = new ChromeDriver();
+//        }
+
+        driver.manage().window().maximize();
     }
+
 
     @AfterMethod
     public void tearDown(){
@@ -143,7 +162,7 @@ public class TestInit {
     }
 
     public WebElement chouseCallPhone() {
-        return driver.findElement(By.xpath("//span[normalize-space()='Apple iPhone 11, 64GB, Black - Unlocked (Renewed)']"));
+        return driver.findElement(By.xpath("//span[@class='a-size-large product-title-word-break']"));
     }
 
     public WebElement selectCallPhone() {
@@ -209,6 +228,14 @@ public class TestInit {
 
     public WebElement clickIkonCuntry() {
         return driver.findElement(By.xpath("//span[@class= \"icp-nav-flag icp-nav-flag-us\"]"));
+    }
+
+    public WebElement cartIsEmpty() {
+        return driver.findElement(By.xpath("//h1[@class= \"a-spacing-mini a-spacing-top-base\"]"));
+    }
+
+    public WebElement deleteProductFromCart() {
+        return driver.findElement(By.xpath("//input[@value= \"Delete\"]"));
     }
 
     public void changeRegionPoland(){

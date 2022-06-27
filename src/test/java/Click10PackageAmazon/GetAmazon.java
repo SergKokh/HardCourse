@@ -15,12 +15,12 @@ public class GetAmazon extends TestInit{
         sleep(2);
         getAllMenu().click();
         getElectronicMenu().click();
-    //    getHomeAudioMenu().isDisplayed();
         Assert.assertTrue(getHomeAudioMenu().isDisplayed());
     }
     @Test
     public void checkSelectedProduct(){
         navigateAmazon();
+        sleep(2);
         inputInSearchField().sendKeys("Samsung\n");
         sleep(2);
         selectProduct1().click();
@@ -28,22 +28,6 @@ public class GetAmazon extends TestInit{
         Assert.assertTrue(productInDisplayed().isDisplayed());
 
     }
-
-//    @Test
-//    public void signUpAmazon(){
-//        navigateAmazon();
-////        sleep(3);
-////        closeModalWindow().click();
-////        sleep(10);
-//        toGoInSignUp().click();
-//  //      clickStartHere().click();
-//        getToCreateNewAccount().click();
-//        inputName().sendKeys("Ivan Ivanov");
-//        inputEmail().sendKeys("IvanTest147@gmail.com");
-//        inputPassword().sendKeys("qw1234as");
-//        reInputPassword().sendKeys("qw1234as");
-//        goToContinue().click();
-//    }
 
     @Test
     public void checkChangeDeliveryRegion(){
@@ -72,18 +56,10 @@ public class GetAmazon extends TestInit{
     @Test
     public void checkPhoneForPoland(){
         navigateAmazon();
-        deliveryRegionclickBtn().click();
         sleep(2);
-        goToСhoiceRegion().click();
-        selectRegionPoland().click();
-        selectRegionDone().click();
+        changeRegionPoland();
         sleep(2);
-        getAllMenu().click();
-        sleep(2);
-        getElectronicMenu().click();
-        getCallPhoneAndAcces().click();
-        sleep(2);
-        getCallPhone().click();
+        goToCallPhonePage();
         sleep(2);
         selectCallPhone().click();
         sleep(2);
@@ -123,13 +99,7 @@ public class GetAmazon extends TestInit{
         Assert.assertEquals(cartIsEmpty().getText(), "Your Amazon Cart is empty.");
     }
 
-    public WebElement cartIsEmpty() {
-        return driver.findElement(By.xpath("//h1[@class= \"a-spacing-mini a-spacing-top-base\"]"));
-    }
 
-    public WebElement deleteProductFromCart() {
-        return driver.findElement(By.xpath("//input[@value= \"Delete\"]"));
-    }
 
     @Test
     public void checkAddList(){
